@@ -1,5 +1,5 @@
-name: "PR Merge Actions by Label"
-description: "Runs commands for each label present at merge time"
+name: "PR Actions by Label"
+description: "Runs commands for each label present"
 branding:
   icon: box
   color: blue
