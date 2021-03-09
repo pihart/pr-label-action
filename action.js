@@ -31,6 +31,6 @@ const items = JSON.parse(core.getInput("items", { required: true }));
   for (const { label, run } of items) {
     if (!prLabels.includes(label)) continue;
 
-    console.log(execSync(run));
+    core.info(execSync(run).toString());
   }
 })();
