@@ -4,7 +4,7 @@ const { execSync } = require("child_process");
 
 const token = core.getInput("repo-token", { required: true });
 
-const client = new github.GitHub(token);
+const client = github.getOctokit(token);
 
 /**
  * @type {{label: string, run: string}[]}
