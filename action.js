@@ -20,9 +20,7 @@ const items = JSON.parse(core.getInput("items", { required: true }));
 
 (async () => {
   const {
-    data: {
-      pullRequest: { labels },
-    },
+    data: { labels },
   } = await octokit.pulls.get({
     owner: github.context.repo.owner,
     repo: github.context.repo.repo,
