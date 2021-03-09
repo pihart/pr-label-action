@@ -8,7 +8,7 @@ const { execSync } = require("child_process");
  * @param {{label: string, run: string}[]} items
  * @return {Promise<void>}
  */
-export async function runFromPRLabels({
+async function runFromPRLabels({
   prNumber = ((github.context.payload || {}).pull_request || {}).number,
   octokit = github.getOctokit(core.getInput("repo-token", { required: true })),
   items = JSON.parse(core.getInput("items", { required: true })),
@@ -34,3 +34,5 @@ export async function runFromPRLabels({
     core.info(execSync(run).toString());
   }
 }
+
+module.exports = { runFromPRLabels };
