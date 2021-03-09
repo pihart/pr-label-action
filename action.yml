@@ -12,8 +12,17 @@ inputs:
       Can repeat labels.
     required: true
     default: "[]"
-  prefix:
-    description: Will prefix all "run" commands with this string and then a whitespace
+  label-prefix:
+    description: |
+      Treats each "label" as if it were prefixed by this string with this string.
+      In other words, the label on the PR should equal this string concatenated with one of the provided item labels.
+      Be mindful of whitespace.
+    required: false
+    default: ""
+  run-prefix:
+    description: |
+      Will prefix all "run" commands with this string.
+      Be mindful of whitespace.
     required: false
     default: ""
   case-sensitive:

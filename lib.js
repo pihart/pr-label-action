@@ -6,7 +6,8 @@ const { execSync } = require("child_process");
  * @param {number} prNumber
  * @param {InstanceType<typeof github.GitHub>} octokit
  * @param {{label: string, run: string}[]} items
- * @param {string} prefix
+ * @param {string} labelPrefix
+ * @param {string} runPrefix
  * @param {"false" | "true"} caseSensitive
  * @return {Promise<void>}
  */
@@ -14,7 +15,8 @@ async function runFromPRLabels({
   prNumber = ((github.context.payload || {}).pull_request || {}).number,
   octokit = github.getOctokit(core.getInput("repo-token", { required: true })),
   items = JSON.parse(core.getInput("items", { required: true })),
-  prefix = core.getInput("prefix") || "",
+  labelPrefix = core.getInput("label-prefix") || "",
+  runPrefix = core.getInput("run-prefix") || "",
   caseSensitive = core.getInput("case-sensitive"),
 } = {}) {
   if (prNumber == null) {
@@ -38,10 +40,10 @@ async function runFromPRLabels({
 
   // Preserve order of items defined in config
   for (const { label, run } of items) {
-    if (!prLabels.includes(caseTransform(label))) continue;
+    if (!prLabels.includes(caseTransform(`${labelPrefix}${label}`))) continue;
 
     core.info(`Running ${run} for label ${label}`);
-    core.info(execSync(`${prefix ? `${prefix} ` : ""}${run}`).toString());
+    core.info(execSync(`${runPrefix}${run}`).toString());
   }
 }
 
