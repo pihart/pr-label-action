@@ -6,12 +6,14 @@ const { execSync } = require("child_process");
  * @param {number} prNumber
  * @param {InstanceType<typeof github.GitHub>} octokit
  * @param {{label: string, run: string}[]} items
+ * @param {string} prefix
  * @return {Promise<void>}
  */
 async function runFromPRLabels({
   prNumber = ((github.context.payload || {}).pull_request || {}).number,
   octokit = github.getOctokit(core.getInput("repo-token", { required: true })),
   items = JSON.parse(core.getInput("items", { required: true })),
+  prefix = core.getInput("prefix") || "",
 } = {}) {
   if (prNumber == null) {
     core.setFailed("Could not get pull request number from context, exiting");
@@ -31,7 +33,7 @@ async function runFromPRLabels({
     if (!prLabels.includes(label)) continue;
 
     core.info(`Running ${run} for label ${label}`);
-    core.info(execSync(run).toString());
+    core.info(execSync(`${prefix ? `${prefix} ` : ""}${run}`).toString());
   }
 }
 

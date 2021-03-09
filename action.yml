@@ -11,6 +11,10 @@ inputs:
       Can repeat labels."
     required: true
     default: "[]"
+  prefix:
+    description: Will prefix all "run" commands with this string and then a whitespace
+    required: false
+    default: ""
 runs:
   using: node12
   main: action.js
