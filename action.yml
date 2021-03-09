@@ -16,6 +16,10 @@ inputs:
     description: Will prefix all "run" commands with this string and then a whitespace
     required: false
     default: ""
+  case-sensitive:
+    description: Whether to treat labels in a case-sensitive manner
+    required: false
+    default: "false"
 runs:
   using: node12
   main: action.js
