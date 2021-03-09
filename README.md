@@ -29,7 +29,7 @@ jobs:
       - run: |
           git config --global user.name 'Avi Mehra'
           git config --global user.email 'pihart@users.noreply.github.com'
-      - uses: pihart/pr-label-action@v2.2.0
+      - uses: pihart/pr-label-action@v2.2.1
         with:
           label-prefix: "Semver: "
           run-prefix: "npm version "

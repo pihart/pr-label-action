@@ -24,7 +24,8 @@ async function runFromPRLabels({
     return;
   }
 
-  const caseTransform = (str) => (caseSensitive ? str : str.toLowerCase());
+  const caseTransform = (str) =>
+    caseSensitive === "true" ? str : str.toLowerCase();
 
   // Labels on the PR itself
   const {
