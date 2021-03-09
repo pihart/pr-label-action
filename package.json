@@ -1,0 +1,16 @@
+{
+  "name": "pr-label-action",
+  "version": "1.0.0",
+  "description": "Execute arbitrary code in response to a PR's labels",
+  "main": "index.js",
+  "keywords": [],
+  "author": {
+    "url": "https://pihart.github.io",
+    "name": "Avi Mehra"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0"
+  }
+}

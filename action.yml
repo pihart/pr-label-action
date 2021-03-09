@@ -1,0 +1,15 @@
+name: "PR Merge Actions by Label"
+description: "Runs commands for each label present at merge time"
+inputs:
+  repo-token:
+    description: Token with permission to read labels
+    required: true
+  items:
+    description: "An ordered list of labels and commands to run.
+      JSON string with represented type `{label: string, run: string}[]`.
+      Can repeat labels."
+    required: true
+    default: "[]"
+runs:
+  using: node12
+  main: action.js
