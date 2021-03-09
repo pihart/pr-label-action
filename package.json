@@ -3,7 +3,10 @@
   "version": "2.2.3",
   "description": "Execute arbitrary code in response to a PR's labels",
   "main": "lib.js",
-  "keywords": [],
+  "keywords": [
+    "github-actions",
+    "semver"
+  ],
   "author": {
     "url": "https://pihart.github.io",
     "name": "Avi Mehra"
