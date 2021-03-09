@@ -1,5 +1,5 @@
 const core = require("@actions/core");
-import { runFromPRLabels } from "./lib";
+const { runFromPRLabels } = require("./lib");
 
 runFromPRLabels().catch((reason) => {
   core.setFailed(reason);
