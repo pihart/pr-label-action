@@ -4,6 +4,7 @@ inputs:
   repo-token:
     description: Token with permission to read labels
     required: true
+    default: ${{ github.token }}
   items:
     description: "An ordered list of labels and commands to run.
       JSON string with represented type `{label: string, run: string}[]`.
