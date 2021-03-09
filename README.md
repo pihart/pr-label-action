@@ -22,14 +22,14 @@ on:
 jobs:
   semver:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
+    if: ${{ github.event.pull_request.merged == true && !contains(github.event.issue.labels.*.name, 'no-semver') }}
 
     steps:
       - uses: actions/checkout@v2
       - run: |
           git config --global user.name 'Avi Mehra'
           git config --global user.email 'pihart@users.noreply.github.com'
-      - uses: pihart/pr-label-action@v2.2.2
+      - uses: pihart/pr-label-action@v2
         with:
           label-prefix: "Semver:"
           run-prefix: npm version
