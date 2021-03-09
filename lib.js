@@ -41,10 +41,10 @@ async function runFromPRLabels({
 
   // Preserve order of items defined in config
   for (const { label, run } of items) {
-    if (!prLabels.includes(caseTransform(`${labelPrefix}${label}`))) continue;
+    if (!prLabels.includes(caseTransform(`${labelPrefix} ${label}`))) continue;
 
     core.info(`Running ${run} for label ${label}`);
-    core.info(execSync(`${runPrefix}${run}`).toString());
+    core.info(execSync(`${runPrefix} ${run}`).toString());
   }
 }
 
