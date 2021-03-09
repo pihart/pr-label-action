@@ -2,7 +2,7 @@ const core = require("@actions/core");
 const github = require("@actions/github");
 const { execSync } = require("child_process");
 
-const prNumber = github.context.payload?.pull_request?.number;
+const prNumber = ((github.context.payload || {}).pull_request || {}).number;
 
 if (prNumber == null) {
   console.log("Could not get pull request number from context, exiting");
