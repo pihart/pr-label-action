@@ -6,9 +6,10 @@ inputs:
     required: true
     default: ${{ github.token }}
   items:
-    description: "An ordered list of labels and commands to run.
+    description: |
+      An ordered list of labels and commands to run.
       JSON string with represented type `{label: string, run: string}[]`.
-      Can repeat labels."
+      Can repeat labels.
     required: true
     default: "[]"
   prefix:
