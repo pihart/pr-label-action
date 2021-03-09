@@ -1,5 +1,8 @@
 name: "PR Merge Actions by Label"
 description: "Runs commands for each label present at merge time"
+branding:
+  icon: box
+  color: blue
 inputs:
   repo-token:
     description: Token with permission to read labels
