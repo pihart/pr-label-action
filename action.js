@@ -11,13 +11,15 @@ const client = new github.GitHub(token);
  */
 const items = JSON.parse(core.getInput("items", { required: true }));
 
-/**
- * @type {string[]}
- */
-const prLabels = await client.issues.listLabelsOnIssue();
+(async () => {
+  /**
+   * @type {string[]}
+   */
+  const prLabels = await client.issues.listLabelsOnIssue();
 
-for (const { label, run } of items) {
-  if (!prLabels.includes(label)) continue;
+  for (const { label, run } of items) {
+    if (!prLabels.includes(label)) continue;
 
-  execSync(run);
-}
+    execSync(run);
+  }
+})();
