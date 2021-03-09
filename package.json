@@ -2,7 +2,7 @@
   "name": "pr-label-action",
   "version": "2.0.0",
   "description": "Execute arbitrary code in response to a PR's labels",
-  "main": "index.js",
+  "main": "lib.js",
   "keywords": [],
   "author": {
     "url": "https://pihart.github.io",
